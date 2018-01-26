@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>cn.xiaoshuiping</groupId>
-	<artifactId>spring-boot2-study</artifactId>
+	<artifactId>spring-boot-sample-xml</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
