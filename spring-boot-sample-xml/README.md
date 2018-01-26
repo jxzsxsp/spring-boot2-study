@@ -1,0 +1,1 @@
+> Example show how Spring Boot can be mixed with traditional XML configuration (we generally recommend using Java @Configuration whenever possible
