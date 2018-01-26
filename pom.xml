@@ -4,14 +4,15 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>cn.xiaoshuiping</groupId>
-	<artifactId>spring-cloud-study</artifactId>
+	<artifactId>spring-boot2-study</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>spring-cloud-study</name>
-	<description>Demo project for Spring Cloud</description>
+	<name>spring-boot2-study</name>
+	<description>Demo project for Spring Boot2</description>
 
 	<modules>
+		<module>spring-boot-sample-xml</module>
 	</modules>
 
 </project>
