@@ -72,7 +72,7 @@ $.extend($.fn, {
           return true;
         }
 
-        // prevent submit for invalid forms or custom submit handlers
+        // prevent submit for invalid forms or custom submit handler
         if ( validator.cancelSubmit ) {
           validator.cancelSubmit = false;
           return handle();
