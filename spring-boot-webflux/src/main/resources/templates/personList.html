@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>人类列表</title>
+</head>
+<body>
+<div>
+
+
+    <table>
+        <legend>
+            <strong>人类列表</strong>
+        </legend>
+        <thead>
+        <tr>
+            <th>编号</th>
+            <th>名字</th>
+            <th>年龄</th>
+            <th>性别</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="person : ${personList}">
+            <td th:text="${person.id}"></td>
+            <td th:text="${person.name}"></td>
+            <td th:text="${person.age}"></td>
+            <td th:text="${person.gender}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>
