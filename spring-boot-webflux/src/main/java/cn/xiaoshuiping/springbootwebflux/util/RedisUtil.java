@@ -9,4 +9,9 @@ public class RedisUtil {
     public static String getStudentKey(Long id) {
         return "student_" + id;
     }
+
+    public static String getPersonKey(Long id) {
+        return "person_" + id;
+    }
+
 }

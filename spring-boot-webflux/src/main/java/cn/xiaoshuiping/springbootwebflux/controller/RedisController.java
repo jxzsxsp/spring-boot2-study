@@ -1,8 +1,11 @@
 package cn.xiaoshuiping.springbootwebflux.controller;
 
+import cn.xiaoshuiping.springbootwebflux.domain.Person;
 import cn.xiaoshuiping.springbootwebflux.domain.Student;
 import cn.xiaoshuiping.springbootwebflux.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.ReactiveRedisTemplate;
+import org.springframework.data.redis.core.ReactiveValueOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +21,9 @@ public class RedisController {
 
     @Autowired
     private RedisTemplate redisTemplate;
+
+    @Autowired
+    private ReactiveRedisTemplate reactiveRedisTemplate;
 
     @PostMapping(value = "/student")
     public Mono<Student> saveStudent(@RequestBody Student student) {
@@ -53,5 +59,28 @@ public class RedisController {
         }
 
         return Mono.create(longMonoSink -> longMonoSink.success(id));
+    }
+
+    @PostMapping(value = "/person")
+    public Mono<Person> savePerson(@RequestBody Person person) {
+        String key = RedisUtil.getPersonKey(person.getId());
+        ReactiveValueOperations<String, Person> ops = reactiveRedisTemplate.opsForValue();
+
+        return ops.getAndSet(key, person);
+    }
+
+    @GetMapping(value = "/person/{id}")
+    public Mono<Person> findPersonById(@PathVariable("id") Long id) {
+        String key = RedisUtil.getPersonKey(id);
+        ReactiveValueOperations<String, Person> ops = reactiveRedisTemplate.opsForValue();
+
+        return ops.get(key);
+    }
+
+    @DeleteMapping(value = "/person/{id}")
+    public Mono<Long> deletePerson(@PathVariable("id") Long id) {
+        String key = RedisUtil.getPersonKey(id);
+
+        return reactiveRedisTemplate.delete(key);
     }
 }
