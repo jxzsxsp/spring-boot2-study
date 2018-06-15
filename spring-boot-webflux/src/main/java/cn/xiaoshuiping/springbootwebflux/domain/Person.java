@@ -2,11 +2,15 @@ package cn.xiaoshuiping.springbootwebflux.domain;
 
 import org.springframework.data.annotation.Id;
 
+import java.io.Serializable;
+
 /**
  * @author Sean.Xiao
  * @date 2018/6/12 下午7:42
  */
-public class Person {
+public class Person implements Serializable {
+
+    private static final long serialVersionUID = -7833800558942340L;
 
     @Id
     private Long id;
