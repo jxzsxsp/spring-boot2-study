@@ -8,5 +8,6 @@ public class TemplateConstant {
 
     public static final String HELLO = "hello";
     public static final String PERSON_LIST = "personList";
+    public static final String WEBSOCKET_CLIENT = "clientWebSocket";
 
 }

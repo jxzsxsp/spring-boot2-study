@@ -60,4 +60,9 @@ public class PersonController {
         model.addAttribute("personList", personList);
         return TemplateConstant.PERSON_LIST;
     }
+
+    @GetMapping(value = "/websocket")
+    public String clientWebSocket(final Model model) {
+        return TemplateConstant.WEBSOCKET_CLIENT;
+    }
 }
